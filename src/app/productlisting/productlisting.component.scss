@@ -1,0 +1,24 @@
+img {
+    height: 200px;
+    width: 200px;
+}
+
+header {
+    display: flex;
+    justify-content: space-around;
+}
+
+.container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+p {
+    width: 180px;
+    text-align: center;
+}
+
+mat-card {
+    margin-top: 20px;
+}

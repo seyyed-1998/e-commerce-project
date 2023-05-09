@@ -1,0 +1,38 @@
+<header>
+    <mat-form-field appearance="fill">
+        <mat-label>Select Category</mat-label>
+        <mat-select (selectionChange)="onCategorySelect($event)">
+            <mat-option *ngFor="let category of categories" [value]="category">
+                {{category}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Sort by</mat-label>
+        <mat-select (selectionChange)="onSortSelect($event)">
+            <mat-option *ngFor="let sortOption of sortBy" [value]="sortOption">
+                {{sortOption}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</header>
+<div class="container" *ngIf="!this.isFiltered">
+    <mat-card *ngFor="let product of products">
+        <mat-card-content (click)="onButtonClick(product)">
+            <img src="{{product.image}}" />
+            <p>{{product.title}}</p>
+            <strong>₹{{product.price}}</strong>
+        </mat-card-content>
+    </mat-card>
+</div>
+
+<div class="container" *ngIf="this.isFiltered">
+    <mat-card *ngFor="let product of filteredProducts">
+        <mat-card-content>
+            <img src="{{product.image}}" />
+            <p>{{product.title}}</p>
+            <strong>₹{{product.rating.rate}}</strong>
+        </mat-card-content>
+    </mat-card>
+</div>
